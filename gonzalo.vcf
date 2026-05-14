@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Fernandez;Gonzalo;;;
+FN:Gonzalo Fernandez
+ORG:2Braind
+TITLE:Desarrollador & Consultor Digital
+TEL;TYPE=CELL,WHATSAPP:+51928659107
+URL:https://2braind-landing.vercel.app
+URL:https://wa.me/51928659107
+X-SOCIALPROFILE;TYPE=tiktok:https://www.tiktok.com/@atakfernandez
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/CerebroDigital
+NOTE:2Braind — Humano y Digital\,Landing Pages\, Tarjetas Wallet\, WhatsApp Bot\, Automatización
+CATEGORIES:Business,Technology
+ADR;TYPE=WORK:;;Arequipa;;;Perú
+REV:20260514T050000Z
+END:VCARD

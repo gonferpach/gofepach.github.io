@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2Braind — Portafolio de Plantillas</title>
+<meta name="theme-color" content="#0a0a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--primary:#6c63ff;--accent:#00d4aa;--bg:#0a0a1a;--card:#12122a;--card2:#1a1a3e;--text:#fff;--text2:#a0a0c0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.header{text-align:center;padding:30px 20px 20px;position:relative}
+.header h1{font-size:24px;font-weight:700;margin-bottom:4px}
+.header h1 span{color:var(--primary)}
+.header p{font-size:14px;color:var(--text2)}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--primary);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:12px}
+.filters{display:flex;gap:8px;padding:0 16px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.filter{padding:8px 16px;border-radius:20px;border:1px solid rgba(108,99,255,0.2);background:transparent;color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .3s;font-family:'Inter',sans-serif}
+.filter:hover,.filter.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 80px}
+.card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid rgba(108,99,255,0.1);transition:all .3s;text-decoration:none;color:var(--text)}
+.card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 8px 30px rgba(108,99,255,0.2)}
+.card-thumb{width:100%;height:140px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:32px;position:relative;overflow:hidden}
+.card-thumb iframe{width:200%;height:200%;transform:scale(0.5);transform-origin:0 0;pointer-events:none;border:none}
+.card-info{padding:10px 12px}
+.card-info h3{font-size:13px;font-weight:600;margin-bottom:4px}
+.card-info .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:6px;background:rgba(108,99,255,0.15);color:var(--primary)}
+.card-info .tag.custom{background:rgba(0,212,170,0.15);color:var(--accent)}
+.card-info .tag.tailwind{background:rgba(56,189,248,0.15);color:#38bdf8}
+.card-info .cta{display:block;margin-top:6px;font-size:11px;color:var(--primary);font-weight:600}
+</style>
+</head>
+<body>
+<div class="header">
+<a href="../" class="back-link"><i class="fas fa-arrow-left"></i> Volver a tarjeta</a>
+<h1>🧠 <span>2Braind</span> — Plantillas</h1>
+<p>Landing pages profesionales para tu negocio</p>
+</div>
+<div class="filters">
+<button class="filter active" data-filter="all">Todas</button>
+<button class="filter" data-filter="custom">Negocios</button>
+<button class="filter" data-filter="html5up">Profesionales</button>
+<button class="filter" data-filter="tailwind">Modernas</button>
+</div>
+<div class="grid" id="grid"></div>
+<script>
+const templates=[
+{name:'aerial',tag:'html5up',url:'templates/aerial/'},
+{name:'alpha',tag:'html5up',url:'templates/alpha/'},
+{name:'arcana',tag:'html5up',url:'templates/arcana/'},
+{name:'astral',tag:'html5up',url:'templates/astral/'},
+{name:'big-picture',tag:'html5up',url:'templates/big-picture/'},
+{name:'cruip-dashboard',tag:'tailwind',url:'templates/cruip-dashboard/'},
+{name:'dimension',tag:'html5up',url:'templates/dimension/'},
+{name:'directive',tag:'html5up',url:'templates/directive/'},
+{name:'dopetrope',tag:'html5up',url:'templates/dopetrope/'},
+{name:'editorial',tag:'html5up',url:'templates/editorial/'},
+{name:'escape-velocity',tag:'html5up',url:'templates/escape-velocity/'},
+{name:'ethereal',tag:'html5up',url:'templates/ethereal/'},
+{name:'eventually',tag:'html5up',url:'templates/eventually/'},
+{name:'forty',tag:'html5up',url:'templates/forty/'},
+{name:'fractal',tag:'html5up',url:'templates/fractal/'},
+{name:'future-imperfect',tag:'html5up',url:'templates/future-imperfect/'},
+{name:'halcyonic',tag:'html5up',url:'templates/halcyonic/'},
+{name:'helios',tag:'html5up',url:'templates/helios/'},
+{name:'highlights',tag:'html5up',url:'templates/highlights/'},
+{name:'hyperspace',tag:'html5up',url:'templates/hyperspace/'},
+{name:'identity',tag:'html5up',url:'templates/identity/'},
+{name:'landed',tag:'html5up',url:'templates/landed/'},
+{name:'lens',tag:'html5up',url:'templates/lens/'},
+{name:'massively',tag:'html5up',url:'templates/massively/'},
+{name:'minimaxing',tag:'html5up',url:'templates/minimaxing/'},
+{name:'miniport',tag:'html5up',url:'templates/miniport/'},
+{name:'multiverse',tag:'html5up',url:'templates/multiverse/'},
+{name:'paradigm-shift',tag:'html5up',url:'templates/paradigm-shift/'},
+{name:'parallelism',tag:'html5up',url:'templates/parallelism/'},
+{name:'phantom',tag:'html5up',url:'templates/phantom/'},
+{name:'photon',tag:'html5up',url:'templates/photon/'},
+{name:'prologue',tag:'html5up',url:'templates/prologue/'},
+{name:'read-only',tag:'html5up',url:'templates/read-only/'},
+{name:'solid-state',tag:'html5up',url:'templates/solid-state/'},
+{name:'spectral',tag:'html5up',url:'templates/spectral/'},
+{name:'stellar',tag:'html5up',url:'templates/stellar/'},
+{name:'story',tag:'html5up',url:'templates/story/'},
+{name:'strata',tag:'html5up',url:'templates/strata/'},
+{name:'striped',tag:'html5up',url:'templates/striped/'},
+{name:'strongly-typed',tag:'html5up',url:'templates/strongly-typed/'},
+{name:'tailwind-admin',tag:'tailwind',url:'templates/tailwind-admin/'},
+{name:'tailwind-ghostwind',tag:'tailwind',url:'templates/tailwind-ghostwind/'},
+{name:'tailwind-help',tag:'tailwind',url:'templates/tailwind-help/'},
+{name:'tailwind-hero-product',tag:'tailwind',url:'templates/tailwind-hero-product/'},
+{name:'tailwind-landing',tag:'tailwind',url:'templates/tailwind-landing/'},
+{name:'tailwind-minimal-blog',tag:'tailwind',url:'templates/tailwind-minimal-blog/'},
+{name:'tailwind-nordic-store',tag:'tailwind',url:'templates/tailwind-nordic-store/'},
+{name:'tailwind-profile-card',tag:'tailwind',url:'templates/tailwind-profile-card/'},
+{name:'tailwind-rainblur',tag:'tailwind',url:'templates/tailwind-rainblur/'},
+{name:'telephasic',tag:'html5up',url:'templates/telephasic/'},
+{name:'tessellate',tag:'html5up',url:'templates/tessellate/'},
+{name:'twenty',tag:'html5up',url:'templates/twenty/'},
+{name:'verti',tag:'html5up',url:'templates/verti/'},
+{name:'zerofour',tag:'html5up',url:'templates/zerofour/'},
+];
+
+const grid=document.getElementById('grid');
+const filters=document.querySelectorAll('.filter');
+
+function render(filter='all'){
+  grid.innerHTML='';
+  const f=filter.toLowerCase();
+  templates.filter(t=>f==='all'||t.tag===f).forEach(t=>{
+    const card=document.createElement('a');
+    card.className='card';
+    card.href=t.url;
+    card.target='_blank';
+    card.innerHTML=`<div class="card-thumb"><iframe src="${t.url}" loading="lazy" sandbox="allow-scripts"></iframe></div><div class="card-info"><h3>${t.name.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</h3><span class="tag ${t.tag}">${t.tag==='custom'?'🎯 Negocio':t.tag==='tailwind'?'⚡ Tailwind':'🎨 Profesional'}</span><span class="cta">Ver demo →</span></div>`;
+    grid.appendChild(card);
+  });
+}
+
+render();
+filters.forEach(btn=>btn.addEventListener('click',()=>{
+  filters.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  render(btn.dataset.filter);
+}));
+</script>
+</body>
+</html>
