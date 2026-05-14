@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2Braind — Portafolio de Plantillas</title>
+<meta name="description" content="2Braind: Landing pages profesionales para tu negocio en Arequipa, Perú">
 <meta name="theme-color" content="#0a0a1a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,19 +12,23 @@
 <style>
 :root{--primary:#6c63ff;--accent:#00d4aa;--bg:#0a0a1a;--card:#12122a;--card2:#1a1a3e;--text:#fff;--text2:#a0a0c0}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.header{text-align:center;padding:30px 20px 20px;position:relative}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.header{text-align:center;padding:30px 20px 10px;position:relative}
 .header h1{font-size:24px;font-weight:700;margin-bottom:4px}
 .header h1 span{color:var(--primary)}
-.header p{font-size:14px;color:var(--text2)}
-.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--primary);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:12px}
-.filters{display:flex;gap:8px;padding:0 16px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.header p{font-size:14px;color:var(--text2);margin-bottom:8px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--primary);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:8px}
+.back-link:hover{text-decoration:underline}
+.site-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:13px;font-weight:600;padding:6px 16px;border-radius:20px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.2);margin-bottom:12px}
+.site-link:hover{background:rgba(0,212,170,0.2)}
+.filters{display:flex;gap:8px;padding:0 16px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
 .filter{padding:8px 16px;border-radius:20px;border:1px solid rgba(108,99,255,0.2);background:transparent;color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .3s;font-family:'Inter',sans-serif}
 .filter:hover,.filter.active{background:var(--primary);color:#fff;border-color:var(--primary)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 80px}
 .card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid rgba(108,99,255,0.1);transition:all .3s;text-decoration:none;color:var(--text)}
 .card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 8px 30px rgba(108,99,255,0.2)}
-.card-thumb{width:100%;height:140px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:32px;position:relative;overflow:hidden}
+.card-thumb{width:100%;height:160px;background:var(--card2);overflow:hidden;position:relative}
 .card-thumb iframe{width:200%;height:200%;transform:scale(0.5);transform-origin:0 0;pointer-events:none;border:none}
 .card-info{padding:10px 12px}
 .card-info h3{font-size:13px;font-weight:600;margin-bottom:4px}
@@ -31,91 +36,97 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
 .card-info .tag.custom{background:rgba(0,212,170,0.15);color:var(--accent)}
 .card-info .tag.tailwind{background:rgba(56,189,248,0.15);color:#38bdf8}
 .card-info .cta{display:block;margin-top:6px;font-size:11px;color:var(--primary);font-weight:600}
+.count{font-size:12px;color:var(--text2);padding:0 16px 8px}
 </style>
 </head>
 <body>
 <div class="header">
 <a href="../" class="back-link"><i class="fas fa-arrow-left"></i> Volver a tarjeta</a>
+<br>
+<a href="https://2braind-landing.vercel.app" target="_blank" class="site-link"><i class="fas fa-globe"></i> 2Braind.pe — Nuestro Sitio</a>
 <h1>🧠 <span>2Braind</span> — Plantillas</h1>
 <p>Landing pages profesionales para tu negocio</p>
 </div>
 <div class="filters">
 <button class="filter active" data-filter="all">Todas</button>
-<button class="filter" data-filter="custom">Negocios</button>
-<button class="filter" data-filter="html5up">Profesionales</button>
-<button class="filter" data-filter="tailwind">Modernas</button>
+<button class="filter" data-filter="custom">🎯 Negocios</button>
+<button class="filter" data-filter="html5up">🎨 Profesionales</button>
+<button class="filter" data-filter="tailwind">⚡ Modernas</button>
 </div>
+<div class="count" id="count"></div>
 <div class="grid" id="grid"></div>
 <script>
 const templates=[
-{name:'aerial',tag:'html5up',url:'templates/aerial/'},
-{name:'alpha',tag:'html5up',url:'templates/alpha/'},
-{name:'arcana',tag:'html5up',url:'templates/arcana/'},
-{name:'astral',tag:'html5up',url:'templates/astral/'},
-{name:'big-picture',tag:'html5up',url:'templates/big-picture/'},
-{name:'cruip-dashboard',tag:'tailwind',url:'templates/cruip-dashboard/'},
-{name:'dimension',tag:'html5up',url:'templates/dimension/'},
-{name:'directive',tag:'html5up',url:'templates/directive/'},
-{name:'dopetrope',tag:'html5up',url:'templates/dopetrope/'},
-{name:'editorial',tag:'html5up',url:'templates/editorial/'},
-{name:'escape-velocity',tag:'html5up',url:'templates/escape-velocity/'},
-{name:'ethereal',tag:'html5up',url:'templates/ethereal/'},
-{name:'eventually',tag:'html5up',url:'templates/eventually/'},
-{name:'forty',tag:'html5up',url:'templates/forty/'},
-{name:'fractal',tag:'html5up',url:'templates/fractal/'},
-{name:'future-imperfect',tag:'html5up',url:'templates/future-imperfect/'},
-{name:'halcyonic',tag:'html5up',url:'templates/halcyonic/'},
-{name:'helios',tag:'html5up',url:'templates/helios/'},
-{name:'highlights',tag:'html5up',url:'templates/highlights/'},
-{name:'hyperspace',tag:'html5up',url:'templates/hyperspace/'},
-{name:'identity',tag:'html5up',url:'templates/identity/'},
-{name:'landed',tag:'html5up',url:'templates/landed/'},
-{name:'lens',tag:'html5up',url:'templates/lens/'},
-{name:'massively',tag:'html5up',url:'templates/massively/'},
-{name:'minimaxing',tag:'html5up',url:'templates/minimaxing/'},
-{name:'miniport',tag:'html5up',url:'templates/miniport/'},
-{name:'multiverse',tag:'html5up',url:'templates/multiverse/'},
-{name:'paradigm-shift',tag:'html5up',url:'templates/paradigm-shift/'},
-{name:'parallelism',tag:'html5up',url:'templates/parallelism/'},
-{name:'phantom',tag:'html5up',url:'templates/phantom/'},
-{name:'photon',tag:'html5up',url:'templates/photon/'},
-{name:'prologue',tag:'html5up',url:'templates/prologue/'},
-{name:'read-only',tag:'html5up',url:'templates/read-only/'},
-{name:'solid-state',tag:'html5up',url:'templates/solid-state/'},
-{name:'spectral',tag:'html5up',url:'templates/spectral/'},
-{name:'stellar',tag:'html5up',url:'templates/stellar/'},
-{name:'story',tag:'html5up',url:'templates/story/'},
-{name:'strata',tag:'html5up',url:'templates/strata/'},
-{name:'striped',tag:'html5up',url:'templates/striped/'},
-{name:'strongly-typed',tag:'html5up',url:'templates/strongly-typed/'},
-{name:'tailwind-admin',tag:'tailwind',url:'templates/tailwind-admin/'},
-{name:'tailwind-ghostwind',tag:'tailwind',url:'templates/tailwind-ghostwind/'},
-{name:'tailwind-help',tag:'tailwind',url:'templates/tailwind-help/'},
-{name:'tailwind-hero-product',tag:'tailwind',url:'templates/tailwind-hero-product/'},
-{name:'tailwind-landing',tag:'tailwind',url:'templates/tailwind-landing/'},
-{name:'tailwind-minimal-blog',tag:'tailwind',url:'templates/tailwind-minimal-blog/'},
-{name:'tailwind-nordic-store',tag:'tailwind',url:'templates/tailwind-nordic-store/'},
-{name:'tailwind-profile-card',tag:'tailwind',url:'templates/tailwind-profile-card/'},
-{name:'tailwind-rainblur',tag:'tailwind',url:'templates/tailwind-rainblur/'},
-{name:'telephasic',tag:'html5up',url:'templates/telephasic/'},
-{name:'tessellate',tag:'html5up',url:'templates/tessellate/'},
-{name:'twenty',tag:'html5up',url:'templates/twenty/'},
-{name:'verti',tag:'html5up',url:'templates/verti/'},
-{name:'zerofour',tag:'html5up',url:'templates/zerofour/'},
+{name:'aerial',friendly:'Aerial',tag:'html5up',url:'templates/aerial/'},
+{name:'alpha',friendly:'Alpha',tag:'html5up',url:'templates/alpha/'},
+{name:'arcana',friendly:'Arcana',tag:'html5up',url:'templates/arcana/'},
+{name:'astral',friendly:'Astral',tag:'html5up',url:'templates/astral/'},
+{name:'big-picture',friendly:'Big Picture',tag:'html5up',url:'templates/big-picture/'},
+{name:'dimension',friendly:'Dimension',tag:'html5up',url:'templates/dimension/'},
+{name:'directive',friendly:'Directive',tag:'html5up',url:'templates/directive/'},
+{name:'dopetrope',friendly:'Dopetrope',tag:'html5up',url:'templates/dopetrope/'},
+{name:'editorial',friendly:'Editorial',tag:'html5up',url:'templates/editorial/'},
+{name:'escape-velocity',friendly:'Escape Velocity',tag:'html5up',url:'templates/escape-velocity/'},
+{name:'ethereal',friendly:'Ethereal',tag:'html5up',url:'templates/ethereal/'},
+{name:'eventually',friendly:'Eventually',tag:'html5up',url:'templates/eventually/'},
+{name:'forty',friendly:'Forty',tag:'html5up',url:'templates/forty/'},
+{name:'fractal',friendly:'Fractal',tag:'html5up',url:'templates/fractal/'},
+{name:'future-imperfect',friendly:'Future Imperfect',tag:'html5up',url:'templates/future-imperfect/'},
+{name:'halcyonic',friendly:'Halcyonic',tag:'html5up',url:'templates/halcyonic/'},
+{name:'helios',friendly:'Helios',tag:'html5up',url:'templates/helios/'},
+{name:'highlights',friendly:'Highlights',tag:'html5up',url:'templates/highlights/'},
+{name:'hyperspace',friendly:'Hyperspace',tag:'html5up',url:'templates/hyperspace/'},
+{name:'identity',friendly:'Identity',tag:'html5up',url:'templates/identity/'},
+{name:'landed',friendly:'Landed',tag:'html5up',url:'templates/landed/'},
+{name:'lens',friendly:'Lens',tag:'html5up',url:'templates/lens/'},
+{name:'massively',friendly:'Massively',tag:'html5up',url:'templates/massively/'},
+{name:'minimaxing',friendly:'Minimaxing',tag:'html5up',url:'templates/minimaxing/'},
+{name:'miniport',friendly:'Miniport',tag:'html5up',url:'templates/miniport/'},
+{name:'multiverse',friendly:'Multiverse',tag:'html5up',url:'templates/multiverse/'},
+{name:'paradigm-shift',friendly:'Paradigm Shift',tag:'html5up',url:'templates/paradigm-shift/'},
+{name:'parallelism',friendly:'Parallelism',tag:'html5up',url:'templates/parallelism/'},
+{name:'phantom',friendly:'Phantom',tag:'html5up',url:'templates/phantom/'},
+{name:'photon',friendly:'Photon',tag:'html5up',url:'templates/photon/'},
+{name:'prologue',friendly:'Prologue',tag:'html5up',url:'templates/prologue/'},
+{name:'read-only',friendly:'Read Only',tag:'html5up',url:'templates/read-only/'},
+{name:'solid-state',friendly:'Solid State',tag:'html5up',url:'templates/solid-state/'},
+{name:'spectral',friendly:'Spectral',tag:'html5up',url:'templates/spectral/'},
+{name:'stellar',friendly:'Stellar',tag:'html5up',url:'templates/stellar/'},
+{name:'story',friendly:'Story',tag:'html5up',url:'templates/story/'},
+{name:'strata',friendly:'Strata',tag:'html5up',url:'templates/strata/'},
+{name:'striped',friendly:'Striped',tag:'html5up',url:'templates/striped/'},
+{name:'strongly-typed',friendly:'Strongly Typed',tag:'html5up',url:'templates/strongly-typed/'},
+{name:'tailwind-admin',friendly:'Tailwind Admin',tag:'tailwind',url:'templates/tailwind-admin/'},
+{name:'tailwind-ghostwind',friendly:'Tailwind Ghostwind',tag:'tailwind',url:'templates/tailwind-ghostwind/'},
+{name:'tailwind-help',friendly:'Tailwind Help',tag:'tailwind',url:'templates/tailwind-help/'},
+{name:'tailwind-hero-product',friendly:'Tailwind Hero Product',tag:'tailwind',url:'templates/tailwind-hero-product/'},
+{name:'tailwind-landing',friendly:'Tailwind Landing',tag:'tailwind',url:'templates/tailwind-landing/'},
+{name:'tailwind-minimal-blog',friendly:'Tailwind Minimal Blog',tag:'tailwind',url:'templates/tailwind-minimal-blog/'},
+{name:'tailwind-nordic-store',friendly:'Tailwind Nordic Store',tag:'tailwind',url:'templates/tailwind-nordic-store/'},
+{name:'tailwind-profile-card',friendly:'Tailwind Profile Card',tag:'tailwind',url:'templates/tailwind-profile-card/'},
+{name:'tailwind-rainblur',friendly:'Tailwind Rainblur',tag:'tailwind',url:'templates/tailwind-rainblur/'},
+{name:'telephasic',friendly:'Telephasic',tag:'html5up',url:'templates/telephasic/'},
+{name:'tessellate',friendly:'Tessellate',tag:'html5up',url:'templates/tessellate/'},
+{name:'twenty',friendly:'Twenty',tag:'html5up',url:'templates/twenty/'},
+{name:'verti',friendly:'Verti',tag:'html5up',url:'templates/verti/'},
+{name:'zerofour',friendly:'Zerofour',tag:'html5up',url:'templates/zerofour/'},
 ];
 
 const grid=document.getElementById('grid');
+const countEl=document.getElementById('count');
 const filters=document.querySelectorAll('.filter');
 
 function render(filter='all'){
   grid.innerHTML='';
   const f=filter.toLowerCase();
-  templates.filter(t=>f==='all'||t.tag===f).forEach(t=>{
+  const filtered=templates.filter(t=>f==='all'||t.tag===f);
+  countEl.textContent=`Mostrando ${filtered.length} plantillas`;
+  filtered.forEach(t=>{
     const card=document.createElement('a');
     card.className='card';
     card.href=t.url;
     card.target='_blank';
-    card.innerHTML=`<div class="card-thumb"><iframe src="${t.url}" loading="lazy" sandbox="allow-scripts"></iframe></div><div class="card-info"><h3>${t.name.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</h3><span class="tag ${t.tag}">${t.tag==='custom'?'🎯 Negocio':t.tag==='tailwind'?'⚡ Tailwind':'🎨 Profesional'}</span><span class="cta">Ver demo →</span></div>`;
+    card.innerHTML=`<div class="card-thumb"><iframe src="${t.url}" loading="lazy" sandbox="allow-scripts"></iframe></div><div class="card-info"><h3>${t.friendly}</h3><span class="tag ${t.tag}">${t.tag==='custom'?'🎯 Negocio':t.tag==='tailwind'?'⚡ Tailwind':'🎨 Profesional'}</span><span class="cta">Ver demo →</span></div>`;
     grid.appendChild(card);
   });
 }
